@@ -9,7 +9,7 @@
         Loaded="Window_Loaded_1">
     <Window.Resources>
 
-        <local:Markdown x:Key="Markdown"
+        <local:MarkdownEngine x:Key="Markdown"
                         DocumentStyle="{StaticResource DocumentStyle}"
                         Heading1Style="{StaticResource H1Style}"
                         Heading2Style="{StaticResource H2Style}"
@@ -18,10 +18,10 @@
                         LinkStyle="{StaticResource LinkStyle}"
                         ImageStyle="{StaticResource ImageStyle}"
                         SeparatorStyle="{StaticResource SeparatorStyle}"
-                        AssetPathRoot="{x:Static system:Environment.CurrentDirectory}"/>
+                        AssetsFolder="{x:Static system:Environment.CurrentDirectory}"/>
 
         <local:TextToFlowDocumentConverter x:Key="TextToFlowDocumentConverter" 
-                                           Markdown="{StaticResource Markdown}"/>
+                                           MarkdownEngine="{StaticResource Markdown}"/>
 
     </Window.Resources>
 

@@ -16,7 +16,7 @@ namespace Markdown.Xaml.Tests
         public void Transform_givenTest1_generatesExpectedResult()
         {
             var text = LoadText("Test1.md");
-            var markdown = new Markdown();
+            var markdown = new MarkdownEngine();
             var result = markdown.Transform(text);
             Approvals.Verify(AsXaml(result));
         }
@@ -26,7 +26,7 @@ namespace Markdown.Xaml.Tests
         public void Transform_givenLists_generatesExpectedResult()
         {
             var text = LoadText("Lists.md");
-            var markdown = new Markdown();
+            var markdown = new MarkdownEngine();
             var result = markdown.Transform(text);
             Approvals.Verify(AsXaml(result));
         }
@@ -36,7 +36,7 @@ namespace Markdown.Xaml.Tests
         public void Transform_givenHorizontalRules_generatesExpectedResult()
         {
             var text = LoadText("HorizontalRules.md");
-            var markdown = new Markdown();
+            var markdown = new MarkdownEngine();
             var result = markdown.Transform(text);
             Approvals.Verify(AsXaml(result));
         }
@@ -46,7 +46,7 @@ namespace Markdown.Xaml.Tests
         public void Transform_givenLinksInline_generatesExpectedResult()
         {
             var text = LoadText("Links_inline_style.md");
-            var markdown = new Markdown();
+            var markdown = new MarkdownEngine();
             var result = markdown.Transform(text);
             Approvals.Verify(AsXaml(result));
         }
@@ -56,7 +56,7 @@ namespace Markdown.Xaml.Tests
         public void Transform_givenTextStyles_generatesExpectedResult()
         {
             var text = LoadText("Text_style.md");
-            var markdown = new Markdown();
+            var markdown = new MarkdownEngine();
             var result = markdown.Transform(text);
             Approvals.Verify(AsXaml(result));
         }
@@ -66,7 +66,7 @@ namespace Markdown.Xaml.Tests
         public void Transform_givenImages_generatesExpectedResult()
         {
             var text = LoadText("Images.md");
-            var markdown = new Markdown();
+            var markdown = new MarkdownEngine();
             var result = markdown.Transform(text);
             Approvals.Verify(AsXaml(result));
         }
