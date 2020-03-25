@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -494,7 +495,7 @@ namespace Markdown.Xaml
 
             try
             {
-                imgSource = new BitmapImage(new Uri(url, UriKind.RelativeOrAbsolute));
+                imgSource = CreateBitmap(url);
 
                 var image = new Image {Source = imgSource, Tag = linkText};
                 if (ImageStyle == null)
@@ -532,6 +533,30 @@ namespace Markdown.Xaml
             catch (Exception)
             {
                 return new Run("!" + url) {Foreground = Brushes.Red};
+            }
+        }
+
+        private static BitmapImage CreateBitmap(string identifier)
+        {
+            if (File.Exists(identifier))
+            {
+                return LoadBitmapImage(identifier);
+            }
+
+            return new BitmapImage(new Uri(identifier, UriKind.RelativeOrAbsolute));
+        }
+
+        public static BitmapImage LoadBitmapImage(string fileName)
+        {
+            using (var stream = new FileStream(fileName, FileMode.Open))
+            {
+                var bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                bitmapImage.StreamSource = stream;
+                bitmapImage.EndInit();
+                bitmapImage.Freeze(); // just in case you want to load the image in another thread
+                return bitmapImage;
             }
         }
 
