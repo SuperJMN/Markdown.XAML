@@ -18,7 +18,9 @@
                         LinkStyle="{StaticResource LinkStyle}"
                         ImageStyle="{StaticResource ImageStyle}"
                         SeparatorStyle="{StaticResource SeparatorStyle}"
-                        AssetsFolder="{x:Static system:Environment.CurrentDirectory}"/>
+                        TableStyle="{StaticResource TableStyle}"
+                        TableHeaderStyle="{StaticResource TableHeaderStyle}"
+                        AssetPathRoot="{x:Static system:Environment.CurrentDirectory}"/>
 
         <local:TextToFlowDocumentConverter x:Key="TextToFlowDocumentConverter" 
                                            MarkdownEngine="{StaticResource Markdown}"/>
@@ -39,7 +41,7 @@
                  TextWrapping="Wrap"
                  AcceptsReturn="True"
                  Margin="5" 
-                 VerticalScrollBarVisibility="Auto"/>
+                 VerticalScrollBarVisibility="Auto" FontFamily="Consolas"/>
 
         <FlowDocumentScrollViewer Grid.Row="0"
                                   Grid.Column="1"

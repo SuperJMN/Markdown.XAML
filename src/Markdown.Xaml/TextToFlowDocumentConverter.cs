@@ -29,14 +29,16 @@ namespace Markdown.Xaml
         /// <param name="culture">The culture to use in the converter.</param>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null)
+            if (value is null)
             {
                 return null;
             }
 
             var text = (string)value;
 
-            return MarkdownEngine.Transform(text);
+            var engine = MarkdownEngine ?? mMarkdown.Value;
+
+            return engine.Transform(text);
         }
 
         /// <summary>
@@ -53,5 +55,8 @@ namespace Markdown.Xaml
         {
             throw new NotImplementedException();
         }
+
+        private readonly Lazy<MarkdownEngine> mMarkdown
+            = new Lazy<MarkdownEngine>(() => new MarkdownEngine());
     }
 }
