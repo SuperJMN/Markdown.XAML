@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{34186C3B-C308-4CAE-B462-DB7B5F5E378C}</ProjectGuid>
+    <ProjectGuid>{EF4EA04A-2F25-450A-8F7B-029CD5A02BE0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Markdown.Xaml</RootNamespace>
