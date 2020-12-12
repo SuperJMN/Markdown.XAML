@@ -143,14 +143,15 @@ namespace Markdown.Xaml
         public static readonly DependencyProperty SeparatorStyleProperty =
             DependencyProperty.Register("SeparatorStyle", typeof(Style), typeof(MarkdownEngine), new PropertyMetadata(null));
 
+
+        public static readonly DependencyProperty AssetPathRootProperty = DependencyProperty.Register(
+            "AssetPathRoot", typeof(string), typeof(MarkdownEngine), new PropertyMetadata(default(string)));
+
         public string AssetPathRoot
         {
-            get { return (string)GetValue(AssetPathRootProperty); }
+            get { return (string) GetValue(AssetPathRootProperty); }
             set { SetValue(AssetPathRootProperty, value); }
         }
-
-        public static readonly DependencyProperty AssetPathRootProperty =
-            DependencyProperty.Register("AssetPathRootRoot", typeof(string), typeof(MarkdownEngine), new PropertyMetadata(null));
 
         public Style TableStyle
         {
